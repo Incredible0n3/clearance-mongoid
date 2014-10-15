@@ -1,0 +1,23 @@
+language:
+  - ruby
+
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.1
+
+install:
+  - "travis_retry bundle install"
+  - "bundle exec appraisal generate"
+  - "travis_retry bundle exec appraisal install"
+
+before_script:
+  - "bundle exec rake db:migrate"
+
+script:
+  - "bundle exec appraisal rake"
+
+branches:
+  only:
+    - master
+    - 2.0

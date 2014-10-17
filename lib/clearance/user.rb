@@ -44,7 +44,7 @@ module Clearance
 
       included do
         validates_uniqueness_of :email
-        validates_presence_of :email, :encrypted_password, :remember_token
+        validates_presence_of :email, :encrypted_password
         validates_length_of :encrypted_password, :confirmation_token, :remember_token, maximum: 128
         validates_presence_of :password, unless: :skip_password_validation?
       end
